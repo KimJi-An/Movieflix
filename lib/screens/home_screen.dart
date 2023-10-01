@@ -11,7 +11,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       body: FutureBuilder(
         future: popularMovies,
         builder: (context, snapshot) {
@@ -22,11 +22,18 @@ class HomeScreen extends StatelessWidget {
                 const SizedBox(
                   height: 60,
                 ),
-                const Text(
-                  "Popular Movies",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w400,
+                const Padding(
+                  padding: EdgeInsets.symmetric(
+                    vertical: 10,
+                    horizontal: 20,
+                  ),
+                  child: Text(
+                    "Popular Movies",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ),
                 Expanded(
@@ -46,7 +53,7 @@ class HomeScreen extends StatelessWidget {
                     },
                     separatorBuilder: (context, index) => 
                       const SizedBox(
-                        width: 40,
+                        width: 20,
                       ),
                   ),
                 ),

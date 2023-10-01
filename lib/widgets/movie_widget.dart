@@ -20,25 +20,13 @@ class Movie extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            width: 200,
+            width: 160,
             clipBehavior: Clip.hardEdge,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              boxShadow: const [
-
-              ],
+              borderRadius: BorderRadius.circular(10),
             ),
             child: Image.network(
               'https://image.tmdb.org/t/p/w500$poster',
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Text(
-            title,
-            style: const TextStyle(
-              fontSize: 20,
             ),
           ),
         ],
