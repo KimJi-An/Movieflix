@@ -21,13 +21,42 @@ class DetailScreen extends StatefulWidget {
 class _DetailScreenState extends State<DetailScreen> {
   static const black = Colors.black;
   static const white = Colors.white;
-  static const titleFontSize = 25.0;
+  static const titleFontSize = 40.0;
   static const infoFontSize = 13.0;
   static const overviewFontSize = 17.0;
   static const fontWeight600 = FontWeight.w600;
   static const fontWeight800 = FontWeight.w800;
 
   late Future<MovieDetailModel> movie;
+
+  static String minToHour(int minutes) {
+    if (minutes < 60) {
+      return "${minutes}min";
+    } else {
+      int hour = minutes ~/ 60;
+      int min = minutes % 60;
+
+      return "${hour}h ${min}min";
+    }
+  }
+
+  static String ratings(bool adult) {
+    if (adult) {
+      return "19";
+    } else {
+      return "15+";
+    }
+  }
+
+  static String printGenres(List<dynamic> genres) {
+    String genre = genres[0]['name'];
+
+    for (int i = 1; i < genres.length; i++) {
+      genre += ", ${genres[i]['name']}";
+    }
+
+    return genre;
+  }
 
   @override
   void initState() {
@@ -53,12 +82,18 @@ class _DetailScreenState extends State<DetailScreen> {
           future: movie,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
+              var movie = snapshot.data;
+
               return Padding(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 30,
-                  horizontal: 10,
+                padding: const EdgeInsets.only(
+                  top: 30,
+                  bottom: 130,
+                  left: 10,
+                  right: 10,
                 ),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     TextButton.icon(
                       onPressed: () {
@@ -77,9 +112,56 @@ class _DetailScreenState extends State<DetailScreen> {
                         ),
                       ),
                     ),
-                    Text(
-                      snapshot.data!.title,
-                      style: const TextStyle(color: white),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          movie!.title,
+                          style: const TextStyle(
+                            color: white,
+                            fontSize: titleFontSize,
+                            fontWeight: fontWeight800,
+                            letterSpacing: 1.5,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "${movie.releaseDate} | ${minToHour(movie.runtime)} | ${ratings(movie.adult)}",
+                          style: const TextStyle(
+                            color: white,
+                            fontSize: infoFontSize,
+                            fontWeight: fontWeight600,
+                            letterSpacing: 1.2,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          printGenres(movie.genres),
+                          style: const TextStyle(
+                            color: white,
+                            fontSize: infoFontSize,
+                            fontWeight: fontWeight600,
+                            letterSpacing: 1.2,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        Text(
+                          movie.overview,
+                          style: const TextStyle(
+                            color: white,
+                            fontSize: overviewFontSize,
+                            fontWeight: fontWeight600,
+                            letterSpacing: 1.3,
+                            height: 1.5,
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
