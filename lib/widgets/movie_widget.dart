@@ -28,30 +28,34 @@ class Movie extends StatelessWidget {
           ),
         );
       },
-      child: Column(
-        children: [
-          Container(
-            width: 120,
-            clipBehavior: Clip.hardEdge,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
+      child: SizedBox(
+        width: 120,
+        child: Column(
+          children: [
+            Container(
+              width: 120,
+              clipBehavior: Clip.hardEdge,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: Image.network(
+                'https://image.tmdb.org/t/p/w500$backdropPath',
+              ),
             ),
-            child: Image.network(
-              'https://image.tmdb.org/t/p/w500$backdropPath',
+            const SizedBox(
+              height: 10,
             ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Text(
-            title,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 12,
-              fontWeight: FontWeight.w600,
+            Text(
+              title,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 12,
+                fontWeight: FontWeight.w600,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
