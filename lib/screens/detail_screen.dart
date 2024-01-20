@@ -21,6 +21,11 @@ class DetailScreen extends StatefulWidget {
 class _DetailScreenState extends State<DetailScreen> {
   static const black = Colors.black;
   static const white = Colors.white;
+  static const titleFontSize = 25.0;
+  static const infoFontSize = 13.0;
+  static const overviewFontSize = 17.0;
+  static const fontWeight600 = FontWeight.w600;
+  static const fontWeight800 = FontWeight.w800;
 
   late Future<MovieDetailModel> movie;
 
@@ -50,11 +55,28 @@ class _DetailScreenState extends State<DetailScreen> {
             if (snapshot.hasData) {
               return Padding(
                 padding: const EdgeInsets.symmetric(
-                  vertical: 60,
+                  vertical: 30,
                   horizontal: 10,
                 ),
                 child: Column(
                   children: [
+                    TextButton.icon(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: const Icon(
+                        Icons.arrow_back_ios_rounded,
+                        size: 18,
+                        color: white,
+                      ),
+                      label: const Text(
+                        'Back to list',
+                        style: TextStyle(
+                          color: white,
+                          fontSize: overviewFontSize,
+                        ),
+                      ),
+                    ),
                     Text(
                       snapshot.data!.title,
                       style: const TextStyle(color: white),
