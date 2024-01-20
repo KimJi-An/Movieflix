@@ -1,7 +1,7 @@
 class MovieDetailModel {
   final String title, overview, posterPath, releaseDate;
   final bool adult;
-  final List<Map<String, dynamic>> genres;
+  final List<dynamic> genres;
   final int id, runtime;
 
   MovieDetailModel.fromJson(Map<String, dynamic> json)

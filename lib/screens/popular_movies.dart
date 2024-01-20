@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movieflix/models/movie_model.dart';
 import 'package:movieflix/services/api_service.dart';
+import 'package:movieflix/widgets/popular_movie_widget.dart';
 
 class PopularMovies extends StatelessWidget {
   PopularMovies({super.key});
@@ -32,13 +33,9 @@ class PopularMovies extends StatelessWidget {
       itemBuilder: (context, index) {
         var popularMovie = snapshot.data![index];
 
-        return Container(
-          width: 120,
-          clipBehavior: Clip.hardEdge,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-          ),
-          child: Image.network("$baseUrl${popularMovie.posterPath}"),
+        return PopularMovie(
+          posterPath: popularMovie.posterPath,
+          id: popularMovie.id,
         );
       },
       separatorBuilder: (context, index) => const SizedBox(

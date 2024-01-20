@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:movieflix/screens/detail_screen.dart';
 
-class Movie extends StatelessWidget {
-  final String title, backdropPath, posterPath;
+class PopularMovie extends StatelessWidget {
+  final String posterPath;
   final int id;
 
-  const Movie({
+  const PopularMovie({
     super.key,
-    required this.title,
-    required this.backdropPath,
     required this.posterPath,
     required this.id,
   });
@@ -37,18 +35,7 @@ class Movie extends StatelessWidget {
               borderRadius: BorderRadius.circular(15),
             ),
             child: Image.network(
-              'https://image.tmdb.org/t/p/w500$backdropPath',
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Text(
-            title,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 12,
-              fontWeight: FontWeight.w600,
+              'https://image.tmdb.org/t/p/w500$posterPath',
             ),
           ),
         ],

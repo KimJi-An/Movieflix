@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movieflix/models/movie_model.dart';
 import 'package:movieflix/services/api_service.dart';
+import 'package:movieflix/widgets/movie_widget.dart';
 
 class ComingSoonMovies extends StatelessWidget {
   ComingSoonMovies({super.key});
@@ -32,35 +33,11 @@ class ComingSoonMovies extends StatelessWidget {
       itemBuilder: (context, index) {
         var comingSoonMovie = snapshot.data![index];
 
-        return Column(
-          children: [
-            SizedBox(
-              width: 120,
-              child: Column(
-                children: [
-                  Container(
-                    clipBehavior: Clip.hardEdge,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: Image.network(
-                        "$baseUrl${comingSoonMovie.backdropPath}"),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    comingSoonMovie.title,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
+        return Movie(
+          title: comingSoonMovie.title,
+          backdropPath: comingSoonMovie.backdropPath,
+          posterPath: comingSoonMovie.posterPath,
+          id: comingSoonMovie.id,
         );
       },
       separatorBuilder: (context, index) => const SizedBox(

@@ -6,22 +6,22 @@ import 'package:movieflix/screens/popular_movies.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-  final black = Colors.black;
-  final white = Colors.white;
-  final fontSize = 20.0;
-  final fontWeight800 = FontWeight.w800;
-  final fontWeight600 = FontWeight.w600;
+  static const black = Colors.black;
+  static const white = Colors.white;
+  static const fontSize = 20.0;
+  static const fontWeight800 = FontWeight.w800;
+  static const fontWeight600 = FontWeight.w600;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: black,
       body: Padding(
-        padding: const EdgeInsets.only(top: 80, left: 20),
+        padding: const EdgeInsets.only(top: 60, left: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'Popular Movies',
               style: TextStyle(
                 color: white,
@@ -35,9 +35,9 @@ class HomeScreen extends StatelessWidget {
             ),
             PopularMovies(),
             const SizedBox(
-              height: 70,
+              height: 50,
             ),
-            Text(
+            const Text(
               'Now in Cinemas',
               style: TextStyle(
                 color: white,
@@ -50,10 +50,10 @@ class HomeScreen extends StatelessWidget {
               height: 20,
             ),
             NowPlayingMovies(),
-            const SizedBox(
-              height: 10,
-            ),
-            Text(
+            // const SizedBox(
+            //   height: 10,
+            // ),
+            const Text(
               'Coming soon',
               style: TextStyle(
                 color: white,
