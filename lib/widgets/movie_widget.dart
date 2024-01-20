@@ -15,7 +15,7 @@ class Movie extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: () {
         Navigator.push(
           context,
@@ -30,6 +30,7 @@ class Movie extends StatelessWidget {
       },
       child: SizedBox(
         width: 120,
+        // height: 80,
         child: Column(
           children: [
             Container(

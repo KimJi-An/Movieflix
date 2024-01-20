@@ -17,54 +17,13 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: black,
       body: Padding(
-        padding: const EdgeInsets.only(top: 60, left: 20),
+        padding: const EdgeInsets.only(top: 80, left: 20),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Popular Movies',
-              style: TextStyle(
-                color: white,
-                fontSize: fontSize,
-                fontWeight: fontWeight800,
-                letterSpacing: 1.2,
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
             PopularMovies(),
-            const SizedBox(
-              height: 50,
-            ),
-            const Text(
-              'Now in Cinemas',
-              style: TextStyle(
-                color: white,
-                fontSize: fontSize,
-                fontWeight: fontWeight800,
-                letterSpacing: 1.2,
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
             NowPlayingMovies(),
-            // const SizedBox(
-            //   height: 10,
-            // ),
-            const Text(
-              'Coming soon',
-              style: TextStyle(
-                color: white,
-                fontSize: fontSize,
-                fontWeight: fontWeight800,
-                letterSpacing: 1.2,
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
             ComingSoonMovies(),
           ],
         ),

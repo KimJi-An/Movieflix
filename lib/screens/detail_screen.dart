@@ -112,56 +112,61 @@ class _DetailScreenState extends State<DetailScreen> {
                         ),
                       ),
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          movie!.title,
-                          style: const TextStyle(
-                            color: white,
-                            fontSize: titleFontSize,
-                            fontWeight: fontWeight800,
-                            letterSpacing: 1.5,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            movie!.title,
+                            style: const TextStyle(
+                              color: white,
+                              fontSize: titleFontSize,
+                              fontWeight: fontWeight800,
+                              letterSpacing: 1.5,
+                            ),
                           ),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          "${movie.releaseDate} | ${minToHour(movie.runtime)} | ${ratings(movie.adult)}",
-                          style: const TextStyle(
-                            color: white,
-                            fontSize: infoFontSize,
-                            fontWeight: fontWeight600,
-                            letterSpacing: 1.2,
+                          const SizedBox(
+                            height: 10,
                           ),
-                        ),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        Text(
-                          printGenres(movie.genres),
-                          style: const TextStyle(
-                            color: white,
-                            fontSize: infoFontSize,
-                            fontWeight: fontWeight600,
-                            letterSpacing: 1.2,
+                          Text(
+                            "${movie.releaseDate} | ${minToHour(movie.runtime)} | ${ratings(movie.adult)}",
+                            style: const TextStyle(
+                              color: white,
+                              fontSize: infoFontSize,
+                              fontWeight: fontWeight600,
+                              letterSpacing: 1.2,
+                            ),
                           ),
-                        ),
-                        const SizedBox(
-                          height: 30,
-                        ),
-                        Text(
-                          movie.overview,
-                          style: const TextStyle(
-                            color: white,
-                            fontSize: overviewFontSize,
-                            fontWeight: fontWeight600,
-                            letterSpacing: 1.3,
-                            height: 1.5,
+                          const SizedBox(
+                            height: 5,
                           ),
-                        ),
-                      ],
+                          Text(
+                            printGenres(movie.genres),
+                            style: const TextStyle(
+                              color: white,
+                              fontSize: infoFontSize,
+                              fontWeight: fontWeight600,
+                              letterSpacing: 1.2,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          Text(
+                            movie.overview,
+                            style: const TextStyle(
+                              color: white,
+                              fontSize: overviewFontSize,
+                              fontWeight: fontWeight600,
+                              letterSpacing: 1.3,
+                              height: 1.5,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
